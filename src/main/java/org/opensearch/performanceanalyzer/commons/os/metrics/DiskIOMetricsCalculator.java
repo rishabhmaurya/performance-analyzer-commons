@@ -9,9 +9,7 @@ package org.opensearch.performanceanalyzer.commons.os.metrics;
 import java.util.Map;
 import org.opensearch.performanceanalyzer.commons.os.observer.impl.IOObserver.StatKeys;
 
-/**
- * Calculates the disk io metrics for the threads considering the beginning and end measurements
- */
+/** Calculates the disk io metrics for the threads considering the beginning and end measurements */
 public final class DiskIOMetricsCalculator {
     public static IOMetrics calculateIOMetrics(
             long endMeasurementTime,
@@ -44,12 +42,12 @@ public final class DiskIOMetricsCalculator {
                     endTimeResourceMetrics.get(StatKeys.WCHAR.getLabel())
                             - startTimeResourceMetrics.get(StatKeys.WCHAR.getLabel())
                             - writeBytes;
-            readBytes /= duration;
-            readSyscalls /= duration;
-            writeBytes /= duration;
-            writeSyscalls /= duration;
-            readPcBytes /= duration;
-            writePcBytes /= duration;
+//            readBytes /= duration;
+//            readSyscalls /= duration;
+//            writeBytes /= duration;
+//            writeSyscalls /= duration;
+//            readPcBytes /= duration;
+//            writePcBytes /= duration;
 
             return new IOMetrics(
                     readBytes,

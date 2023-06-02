@@ -25,7 +25,6 @@ import java.util.regex.Pattern;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.opensearch.performanceanalyzer.commons.OSMetricsGeneratorFactory;
-import org.opensearch.performanceanalyzer.commons.collectors.ScheduledMetricCollectorsExecutor;
 import org.opensearch.performanceanalyzer.commons.collectors.StatsCollector;
 import org.opensearch.performanceanalyzer.commons.metrics.MetricsConfiguration;
 import org.opensearch.performanceanalyzer.commons.stats.ServiceMetrics;
@@ -297,15 +296,13 @@ public class ThreadList {
 
     static void runThreadDump(String pid, String[] args) {
         /**
-         * String currentThreadName = Thread.currentThread().getName();
-         *         assert currentThreadName.startsWith(
-         *                                 ScheduledMetricCollectorsExecutor.COLLECTOR_THREAD_POOL_NAME)
-         *                         || currentThreadName.equals(
-         *                                 ScheduledMetricCollectorsExecutor.class.getSimpleName())
-         *                 : String.format(
-         *                         "Thread dump called from a non os collector thread: %s", currentThreadName);
+         * String currentThreadName = Thread.currentThread().getName(); assert
+         * currentThreadName.startsWith(
+         * ScheduledMetricCollectorsExecutor.COLLECTOR_THREAD_POOL_NAME) ||
+         * currentThreadName.equals( ScheduledMetricCollectorsExecutor.class.getSimpleName()) :
+         * String.format( "Thread dump called from a non os collector thread: %s",
+         * currentThreadName);
          */
-
         jTidNameMap.clear();
         oldNativeTidMap.putAll(nativeTidMap);
         nativeTidMap.clear();

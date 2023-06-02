@@ -146,7 +146,7 @@ public final class CPUMetricsCalculator {
             long endMajorFault,
             long startMajorFault) {
         double majdiff = endMajorFault - startMajorFault;
-        majdiff /= 1.0e-3 * (endMeasurementTime - startMeasurementTime);
+        // majdiff /= 1.0e-3 * (endMeasurementTime - startMeasurementTime);
         return majdiff;
     }
 }
